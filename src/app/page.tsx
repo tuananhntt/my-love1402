@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Happy Valentine's Day <3 💕",
     description: "Valentine's Day",
-    url: "/letter-removebg-preview-crop.png",
-    siteName: "https://my-love1402.vercel.app/",
+    url: "https://my-love1402.vercel.app",
+    siteName: "MyLove",
     images: [
       {
         url: "/letter-removebg-preview-crop.png", // Ensure this is a valid URL
