@@ -5,7 +5,6 @@ import LetterCard from "./latter-card";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase-config";
 import { toast } from "react-toastify";
-import "../../css/hear-icon.css";
 
 export interface ValentineNumbers {
   id: string;
