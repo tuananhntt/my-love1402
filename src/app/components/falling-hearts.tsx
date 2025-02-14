@@ -50,6 +50,12 @@ export default function FallingHearts() {
       });
   }, []);
 
+  useEffect(() => {
+    const typeWriter = new Audio("/NgayDauTien-DucPhuc-7129810.mp3");
+    typeWriter.loop = true;
+    typeWriter.play();
+  }, []);
+
   if (!loaded) return null;
 
   return (
@@ -71,10 +77,9 @@ export default function FallingHearts() {
           <Heart fill="currentColor" width={heart.size} height={heart.size} />
         </motion.div>
       ))}
-      {/* <YouTube videoId="AfNbehFKJ7o" opts={videoOptions} /> */}
-      <audio autoPlay className="hidden">
+      {/* <audio autoPlay  className="hidden">
         <source src="/NgayDauTien-DucPhuc-7129810.mp3" />
-      </audio>
+      </audio> */}
     </div>
   );
 }

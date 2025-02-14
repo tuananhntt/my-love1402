@@ -8,6 +8,7 @@ import LoadingPage from "./components/loading-page";
 import LetterStepTwo from "./components/letter-step-two";
 import LetterStepThree from "./components/letter-step-three";
 import { Metadata } from "next";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Happy Valentine's Day <3 💕",
@@ -21,7 +22,7 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState(1);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500);
+    const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -42,13 +43,14 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="relative w-full h-full"
         >
-          <div className=" bg-transparent top-0 left-0 right-0 z-10 h-auto overflow-y-auto">
-            <main className="w-full max-w-3xl mx-auto grid place-items-center min-h-screen">
+          <div className="bg-transparent top-0 left-0 right-0 z-10 h-auto">
+            <main className="w-full max-w-3xl mx-auto grid place-items-center min-h-dvh">
               {currentStep === 1 && <LetterLove setStep={setStep} />}
               {currentStep === 2 && <LetterStepTwo setStep={setStep} />}
               {currentStep === 3 && <LetterStepThree />}
             </main>
           </div>
+          <ToastContainer />
         </motion.div>
       )}
     </AnimatePresence>

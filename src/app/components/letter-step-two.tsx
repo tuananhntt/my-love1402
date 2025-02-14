@@ -19,11 +19,10 @@ const LetterStepTwo = ({ setStep }: Props) => {
           ))}
         </div>
 
-        <p className="text-base text-pink-600 font-normal text-center">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
-          voluptatum eius officia ullam iste quibusdam repellat alias ipsa
-          deserunt nobis. Modi doloremque vero sunt impedit, nesciunt voluptas
-          ipsam ut. Tenetur!
+        <p className="text-base md:text-xl text-pink-600 font-normal text-center">
+          {`Chúc cô gái anh thương luôn xinh đẹp và hạnh phúc em nhé. Mong rằng em
+          sẽ luôn nở nụ cười xinh trên môi, gác bỏ mọi ưu phiền và luôn biết yêu
+          bản thân nhiều hơn. Mong cho mọi điều tốt đẹp nhất sẽ đến với em <3!`}
         </p>
         <p className="text-base text-pink-600">{`Happy valentine's day`}</p>
 

@@ -37,9 +37,11 @@ const LetterCard = ({ letter, isSelected, addLetterSelected }: Props) => {
         >
           <div className="text">
             <p>{`Happy Valentine's Day!`}</p>
+
             {!isSelected && (
               <div className="heart" onClick={letterOnSelect}></div>
             )}
+
             {!isSelected && (
               <p className="mt-5 text-xl text-pink-600 font-medium -ml-[28px]">
                 {letter.name}

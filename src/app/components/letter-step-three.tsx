@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import LetterCard from "./latter-card";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase-config";
+import { toast } from "react-toastify";
+import "../../css/hear-icon.css";
 
 export interface ValentineNumbers {
   id: string;
@@ -80,12 +82,15 @@ const LetterStepThree = () => {
     return () => unsubscribed();
   }, []);
 
+  const notify = () => toast("Ahihi, chỉ được chọn 1 lần thôi nhá 😘");
+
   const addLetterSelected = useCallback(
     async (data: ValentineNumbers) => {
       const exitsLetterSelected = letters.some(
         (lt) => lt.id === letterSelected?.id
       );
       if (exitsLetterSelected) {
+        notify();
         return;
       }
       const docRef = await addDoc(collection(db, "letterSelected"), data);
@@ -96,7 +101,7 @@ const LetterStepThree = () => {
 
   return (
     <div className="px-6 flex flex-col justify-center items-center gap-28">
-      <div className="">
+      <div>
         <p className="fixed w-full top-20 px-6 left-1/2 -translate-x-1/2 text-sm text-pink-600 font-medium text-center">
           {receivedGift
             ? "Happy Valentine's Day <3!"
@@ -104,9 +109,15 @@ const LetterStepThree = () => {
             ? "Một món quà nhỏ đang được gửi <3!"
             : `Mỗi bức thư là một món quà chứa ý nghĩa đặc biệt, em hãy sũy nghĩ kỹ
           và chọn một trong số chúng nhé 🥰!`}
+          <br />
+          {!isSelected && !receivedGift && (
+            <span className="text-[10px] mt-2 text-pink-400">
+              {`( Click vào trái tim để chọn )`}
+            </span>
+          )}
         </p>
       </div>
-      <div className="flex flex-col gap-64 mt-48 min-h-[2600px]">
+      <div className="flex flex-col gap-64 mt-48">
         {letters.map((item) => {
           return (
             <LetterCard
